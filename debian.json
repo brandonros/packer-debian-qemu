@@ -5,7 +5,7 @@
       "iso_url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.4.0-amd64-netinst.iso",
       "iso_checksum": "md5:e2ddc8268e4c164c32b4ba25be52c9af",
       "output_directory": "output",
-      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
       "disk_size": "5000M",
       "format": "qcow2",
       "http_directory": "/Users/brandonros/Desktop/packer-debian-qemu/http",

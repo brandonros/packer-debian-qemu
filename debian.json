@@ -1,0 +1,30 @@
+{
+  "builders": [
+    {
+      "type": "qemu",
+      "iso_url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.4.0-amd64-netinst.iso",
+      "iso_checksum": "md5:e2ddc8268e4c164c32b4ba25be52c9af",
+      "output_directory": "output",
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "disk_size": "5000M",
+      "format": "qcow2",
+      "http_directory": "/Users/brandonros/Desktop/packer-debian-qemu/http",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "1800s",
+      "vm_name": "vm",
+      "net_device": "virtio-net",
+      "disk_interface": "virtio",
+      "boot_wait": "10s",
+      "vnc_use_password": true,
+      "headless": true,
+      "memory": 1024,
+      "boot_command": [
+        "<esc><wait>",
+        "/install.amd/vmlinuz initrd=/install.amd/initrd.gz --- auto-install/enable=true preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<wait>",
+        "<enter><wait>"
+      ]
+    }
+  ]
+}
